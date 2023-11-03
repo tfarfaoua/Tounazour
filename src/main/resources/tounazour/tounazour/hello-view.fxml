@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="1018.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tounazour.tounazour.HelloController">
+   <left>
+      <VBox prefHeight="347.0" prefWidth="200.0" spacing="15.0" style="-fx-background-color: #8FBC8F;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="87.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <Button mnemonicParsing="false" onMouseClicked="#dashboard" prefHeight="45.0" prefWidth="234.0" stylesheets="@style.css" text="Dashboard" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#honey" prefHeight="45.0" prefWidth="234.0" stylesheets="@style.css" text="Honey" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#cosmetics" prefHeight="45.0" prefWidth="234.0" stylesheets="@style.css" text="Cosmetics" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#supplies" prefHeight="45.0" prefWidth="234.0" stylesheets="@style.css" text="Bee supplies" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#home" prefHeight="45.0" prefWidth="234.0" stylesheets="@style.css" text="Home" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="234.0" stylesheets="@style.css" text="Log out" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+      </VBox>
+   </left>
+   <center>
+      <AnchorPane fx:id="app" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="139.0" layoutY="113.0" prefHeight="55.0" prefWidth="80.0" text="dashboeard" />
+         </children></AnchorPane>
+   </center>
+</BorderPane>
