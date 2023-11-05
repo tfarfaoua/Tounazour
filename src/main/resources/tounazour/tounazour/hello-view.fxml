@@ -9,22 +9,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="1018.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tounazour.tounazour.HelloController">
+<BorderPane fx:id="body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1018.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tounazour.tounazour.HelloController">
    <left>
-      <VBox prefHeight="347.0" prefWidth="200.0" spacing="15.0" style="-fx-background-color: #8FBC8F;" BorderPane.alignment="CENTER">
+      <VBox prefHeight="557.0" prefWidth="256.0" spacing="15.0" style="-fx-background-color: #8FBC8F;" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="87.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
             <Button mnemonicParsing="false" onMouseClicked="#dashboard" prefHeight="45.0" prefWidth="234.0" stylesheets="@style.css" text="Dashboard" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#honey" prefHeight="45.0" prefWidth="234.0" stylesheets="@style.css" text="Honey" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#cosmetics" prefHeight="45.0" prefWidth="234.0" stylesheets="@style.css" text="Cosmetics" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
                <font>
                   <Font size="14.0" />
                </font>
@@ -39,13 +29,28 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="234.0" stylesheets="@style.css" text="Log out" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
+            <Button mnemonicParsing="false" onMouseClicked="#command" prefHeight="45.0" prefWidth="234.0" stylesheets="@style.css" text="Processuse de commande" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
                <font>
                   <Font size="14.0" />
                </font>
                <VBox.margin>
                   <Insets />
                </VBox.margin>
+            </Button>
+            <Button layoutX="20.0" layoutY="414.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="234.0" stylesheets="@style.css" text="Log out" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="20.0" layoutY="475.0" mnemonicParsing="false" onMouseClicked="#exportation" prefHeight="45.0" prefWidth="234.0" stylesheets="@style.css" text="exportation" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="20.0" layoutY="535.0" mnemonicParsing="false" onMouseClicked="#importation" prefHeight="45.0" prefWidth="234.0" stylesheets="@style.css" text="importation" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Button>
          </children>
          <opaqueInsets>

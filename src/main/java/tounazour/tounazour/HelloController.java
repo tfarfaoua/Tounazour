@@ -30,13 +30,6 @@ public class HelloController implements Initializable {
         loadPage("dashboard");
     }
 
-    public void honey(MouseEvent mouseEvent) {
-        loadPage("Honey");
-    }
-
-    public void cosmetics(MouseEvent mouseEvent) {
-        loadPage("Cosmetics");
-    }
 
     public void supplies(MouseEvent mouseEvent) {
         loadPage("bee_supplies");
@@ -46,6 +39,15 @@ public class HelloController implements Initializable {
         loadPage("Home");
     }
 
+    public void command(MouseEvent mouseEvent) {
+        loadPage("Commend");
+    }
+    public void exportation(MouseEvent mouseEvent) {
+        loadPage("exportation");
+    }
+    public void importation(MouseEvent mouseEvent) {
+        loadPage("importation");
+    }
 
     private void loadPage(String page) {
         Parent root=null;
