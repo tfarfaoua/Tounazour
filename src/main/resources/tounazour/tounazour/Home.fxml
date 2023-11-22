@@ -1,11 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tounazour.tounazour.Home">
+<AnchorPane prefHeight="491.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tounazour.tounazour.employeController">
    <children>
-      <Label layoutX="183.0" layoutY="164.0" text="Home 98" />
+      <VBox layoutX="14.0" layoutY="78.0" prefHeight="300.0" prefWidth="300.0" styleClass="form-container" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="118.0">
+         <children>
+            <Text layoutX="10.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full name :" />
+            <TextField fx:id="nomCh" prefHeight="39.0" prefWidth="300.0" promptText="enter your fulle name" />
+            <Text layoutX="10.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tel :" />
+            <TextField fx:id="telCh" layoutX="10.0" layoutY="140.0" prefHeight="39.0" prefWidth="300.0" promptText="enter your phone" />
+            <Text layoutX="10.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CIN :" />
+            <TextField fx:id="cinCh" layoutX="10.0" layoutY="81.0" prefHeight="39.0" prefWidth="300.0" promptText="enter your CIN" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ferme :" />
+            <TextField fx:id="fermeCh" prefHeight="39.0" prefWidth="300.0" promptText="ferme" />
+         </children>
+      </VBox>
+      <TableView fx:id="tablecommandes" layoutX="330.0" layoutY="134.0" prefHeight="200.0" prefWidth="461.0">
+         <columns>
+            <TableColumn fx:id="cln_id" prefWidth="68.66671752929688" text="ID" />
+            <TableColumn fx:id="cln_nom" prefWidth="139.33340454101562" text="Full name :" />
+            <TableColumn fx:id="cln_cin" prefWidth="65.99993896484375" text="CIN :" />
+            <TableColumn fx:id="cln_tel" prefWidth="92.66668701171875" text="Tel :" />
+            <TableColumn fx:id="cln_ferme" prefWidth="91.33333333333331" text="Ferme :" />
+         </columns>
+      </TableView>
+      <Label alignment="CENTER" layoutX="278.0" layoutY="41.0" styleClass="title" text="LISTE DES COMMANDES" />
+      <ButtonBar layoutX="223.0" layoutY="395.0" prefHeight="46.0" prefWidth="409.0" >
+         <buttons>
+            <Button fx:id="ajouterCh" mnemonicParsing="false" onAction="#Ajouter" prefHeight="25.0" prefWidth="118.0" text="Save" />
+            <Button fx:id="modifierCh" layoutX="135.0" layoutY="18.0" mnemonicParsing="false"  text="Update" />
+            <Button fx:id="suppCh" layoutX="50.0" layoutY="18.0" mnemonicParsing="false" onAction="#Supprimer" text="Delete" />
+         </buttons>
+         <styleClass>
+            <String fx:value="form-container" />
+            <String fx:value="form_container" />
+         </styleClass>
+      </ButtonBar>
+      <Text layoutX="14.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id :" />
+      <TextField fx:id="idCh" layoutX="47.0" layoutY="78.0" prefHeight="39.0" prefWidth="251.0" promptText="enter your id" />
+      <TextField fx:id="searchCh" layoutX="546.0" layoutY="45.0" prefHeight="25.0" prefWidth="143.0" promptText=" Rechercher..." style="-fx-background-color: gray;" />
+      <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="664.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Taxfinalch/src/main/resources/taxi/images/icons8-google-web-recherche-48.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="searchEmploy" layoutX="700.0" layoutY="45.0" mnemonicParsing="false" onAction="#search" onMouseClicked="#searchemploye" prefHeight="25.0" prefWidth="68.0" text="chercher" />
    </children>
 </AnchorPane>
