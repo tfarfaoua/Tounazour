@@ -1,4 +1,61 @@
-nome de base de donneé : "tounazour"
+CREATE DATABASE  IF NOT EXISTS `tounazour`;
+USE `tounazour`;
 
-omaima
+DROP TABLE IF EXISTS `commande`;
+CREATE TABLE `commande` (
+  `Id` int(30) NOT NULL,
+  `ClientName` varchar(30) NOT NULL,
+  `ProduitCommander` varchar(30) NOT NULL,
+  `Quantité` int(20) NOT NULL,
+  `DateCommande` date NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+LOCK TABLES `commande` WRITE;
+UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `exportation`;
+
+CREATE TABLE `exportation` (
+  `Id` int(30) NOT NULL AUTO_INCREMENT,
+  `FournisseurName` varchar(30) NOT NULL,
+  `ProduitExporter` varchar(30) NOT NULL,
+  `Quantité` int(20) NOT NULL,
+  `Prix` double NOT NULL,
+  `DateExportation` date NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+LOCK TABLES `exportation` WRITE;
+INSERT INTO `exportation` VALUES (1,'sdfsdf','sdfsdflmk',12,11,'2023-11-22'),(2,'SDFSDF','sdfSDFSfd',122,111,'2023-11-10'),(3,'sdfsdf','sdfsdflmk',12,11,'2023-11-22'),(4,'SDFSDF','sdfSDFSfd',122,111,'2023-11-10'),(5,'sdfsdf','sdfsdflmk',12,11,'2023-11-22'),(6,'SDFSDF','sdfSDFSfd',122,111,'2023-11-10'),(7,'sdfsdf','sdfsdflmk',12,100,'2023-11-22'),(8,'SDFSDF','sdfSDFSfd',122,111,'2023-11-10'),(9,'sdfsdf','sdfsdflmk',12,11,'2023-11-22'),(10,'SDFSDF','sdfSDFSfd',122,111,'2023-11-10'),(11,'sdfsdf','sdfsdflmk',12,11,'2023-11-22'),(12,'SDFSDF','sdfSDFSfd',122,111,'2023-11-10'),(13,'sdfsdf','sdfsdflmk',12,11,'2023-11-22'),(14,'SDFSDF','sdfSDFSfd',122,111,'2023-11-10'),(15,'sdfsdf','sdfsdflmk',12,11,'2023-11-22'),(16,'SDFSDF','sdfSDFSfd',122,111,'2023-11-10'),(17,'sdfsdf','sdfsdflmk',12,11,'2023-11-22'),(18,'SDFSDF','sdfSDFSfd',122,111,'2023-11-10');
+UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `importation`;
+CREATE TABLE `importation` (
+  `Id` int(30) NOT NULL AUTO_INCREMENT,
+  `FournisseurName` varchar(50) NOT NULL,
+  `ProduitImporter` varchar(50) NOT NULL,
+  `Quantité` int(11) NOT NULL,
+  `Prix` int(11) NOT NULL,
+  `DateImporter` date NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+LOCK TABLES `importation` WRITE;
+INSERT INTO `importation` VALUES (17,'oussama','oussama',12,12,'2023-11-02'),(18,'oussama','oussama',12,12,'2023-11-02'),(19,'oussamae','oussama',12,12,'2023-11-02'),(20,'oussama','oussama',12,12,'2023-11-02'),(21,'oussama','oussama',12,12,'2023-11-02'),(22,'oussama','oussama',12,13,'2023-11-02'),(23,'oussamae','oussama',12,12,'2023-11-02'),(24,'oussama','oussama',12,12,'2023-11-02'),(25,'oussama','oussama',12,12,'2023-11-02'),(26,'oussama','oussama',12,12,'2023-11-02'),(27,'oussamae','oussama',12,12,'2023-11-02'),(28,'oussama','oussama',12,12,'2023-11-02'),(29,'oussama','oussama',12,12,'2023-11-02'),(30,'oussama','oussama',12,12,'2023-11-02'),(31,'oussamae','oussama',12,12,'2023-11-02'),(32,'oussama','oussama',12,12,'2023-11-02');
+UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `register`;
+
+CREATE TABLE `register` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(45) DEFAULT NULL,
+  `password` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+LOCK TABLES `register` WRITE;
+INSERT INTO `register` VALUES (1,'taoufiq','taoufiq');
+UNLOCK TABLES;
