@@ -1,4 +1,4 @@
-package tounazour.tounazour ;
+package tounazour.tounazour;
 
 import java.io.IOException;
 import java.net.URL;

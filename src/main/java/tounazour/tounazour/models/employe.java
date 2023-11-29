@@ -1,4 +1,4 @@
-package tounazour.tounazour;
+package tounazour.tounazour.models;
 public class employe {
     int id;
     String nom;

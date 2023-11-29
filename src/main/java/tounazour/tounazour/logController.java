@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import tounazour.tounazour.ConnexionMysql;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,6 +17,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class logController implements Initializable {
@@ -67,7 +69,7 @@ public class logController implements Initializable {
                         Stage home = new Stage();
                         btnConnecterClicked.getScene().getWindow().hide();
 
-                        fxml = FXMLLoader.load(getClass().getResource("employe.fxml"));
+                        fxml = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
                         Scene scene = new Scene(fxml);
                         home.setScene(scene);
                         home.show();

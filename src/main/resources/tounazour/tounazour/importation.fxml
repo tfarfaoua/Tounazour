@@ -1,14 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="tounazour.tounazour.ImportationController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="596.0" prefWidth="1030.0" stylesheets="@commandestyle.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tounazour.tounazour.controllers.ImportationController">
+   <children>
+      <VBox layoutX="14.0" layoutY="102.0" prefHeight="395.0" prefWidth="300.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="102.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Id" />
+            <TextField fx:id="id" prefHeight="36.0" prefWidth="300.0" />
+            <Text layoutX="10.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FornisseurName" />
+            <TextField fx:id="name" layoutX="10.0" layoutY="27.0" prefHeight="36.0" prefWidth="300.0" />
+            <Text layoutX="10.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Produitimporter" />
+            <TextField fx:id="produit" layoutX="10.0" layoutY="81.0" prefHeight="36.0" prefWidth="300.0" styleClass="border-radius-30" />
+            <Text layoutX="10.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantité" />
+            <TextField fx:id="quantite" layoutX="10.0" layoutY="130.0" prefHeight="36.0" prefWidth="300.0" styleClass="border-radius-30" />
+            <Text layoutX="10.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix" />
+            <TextField fx:id="prix" layoutX="10.0" layoutY="182.0" prefHeight="36.0" prefWidth="300.0" styleClass="border-radius-30" />
+            <Text layoutX="10.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="date d'importation" />
+            <DatePicker fx:id="date" prefHeight="39.0" prefWidth="300.0" />
+         </children>
+      </VBox>
+      <TableView fx:id="tableimportation" layoutX="344.0" layoutY="120.0" prefHeight="200.0" prefWidth="652.0">
+        <columns>
+          <TableColumn fx:id="columnId" prefWidth="106.22216796875" text="Id" />
+            <TableColumn fx:id="columnName" prefWidth="106.22216796875" text="FornisseurName" />
+            <TableColumn fx:id="columnProduit" prefWidth="106.22216796875" text="Produitimporter" />
+            <TableColumn fx:id="columnQuantite" prefWidth="106.22216796875" text="Quantité" />
+            <TableColumn fx:id="columnPrix" prefWidth="106.22216796875" text="Prix" />
+            <TableColumn fx:id="columnDate" prefWidth="120.00006103515625" text="date d'importation" />
+        </columns>
+      </TableView>
+      <ButtonBar layoutX="302.0" layoutY="485.0" prefHeight="40.0" prefWidth="200.0" styleClass="form_container" stylesheets="@commandestyle.css">
+        <buttons>
+          <Button fx:id="btnSave" mnemonicParsing="false" onAction="#saveData" prefHeight="32.0" prefWidth="90.0" text="Save" />
+            <Button fx:id="btnUpdate" layoutX="120.0" layoutY="14.0" mnemonicParsing="false" onAction="#update" prefHeight="32.0" prefWidth="90.0" text="Update" />
+            <Button fx:id="btnDelete" layoutX="125.0" layoutY="14.0" mnemonicParsing="false" onAction="#deleteData" prefHeight="32.0" prefWidth="90.0" text="Delete" />
+            <Button fx:id="btnClear" layoutX="201.0" layoutY="14.0" mnemonicParsing="false" onAction="#clear" prefHeight="32.0" prefWidth="90.0" text="Clear" />
+            <Button fx:id="ExporterExel" layoutX="286.0" layoutY="14.0" mnemonicParsing="false" onAction="#generateExcel" prefHeight="32.0" prefWidth="90.0" text="ExporterExel" />
+            <Button fx:id="ExporterExel1" layoutX="370.0" layoutY="13.0" mnemonicParsing="false" onAction="#importExcelFileToDataBase" prefHeight="32.0" prefWidth="90.0" text="Importer" />
+        </buttons>
+      </ButtonBar>
+      <Label layoutX="379.0" layoutY="39.0" stylesheets="@commandestyle.css" text="Gestion des Produits Importer">
+         <styleClass>
+            <String fx:value="title" />
+            <String fx:value="form-container" />
+         </styleClass>
+      </Label>
+   </children>
 </AnchorPane>

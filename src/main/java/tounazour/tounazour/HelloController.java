@@ -11,6 +11,7 @@ import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
@@ -52,7 +53,7 @@ public class HelloController implements Initializable {
     private void loadPage(String page) {
         Parent root=null;
         try {
-            root = FXMLLoader.load(getClass().getResource(page + ".fxml"));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(page + ".fxml")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

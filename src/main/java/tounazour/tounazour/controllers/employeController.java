@@ -1,4 +1,4 @@
-package tounazour.tounazour;
+package tounazour.tounazour.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,6 +15,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import tounazour.tounazour.ConnexionMysql;
+import tounazour.tounazour.models.employe;
 
 public class employeController implements Initializable {
 

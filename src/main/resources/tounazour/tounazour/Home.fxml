@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="491.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tounazour.tounazour.employeController">
+<AnchorPane prefHeight="491.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tounazour.tounazour.controllers.employeController">
    <children>
       <VBox layoutX="14.0" layoutY="78.0" prefHeight="300.0" prefWidth="300.0" styleClass="form-container" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="118.0">
          <children>
@@ -50,10 +50,10 @@
       </ButtonBar>
       <Text layoutX="14.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id :" />
       <TextField fx:id="idCh" layoutX="47.0" layoutY="78.0" prefHeight="39.0" prefWidth="251.0" promptText="enter your id" />
-      <TextField fx:id="searchCh" layoutX="546.0" layoutY="45.0" prefHeight="25.0" prefWidth="143.0" promptText=" Rechercher..." style="-fx-background-color: gray;" />
+      <TextField fx:id="searchCh" layoutX="546.0" layoutY="45.0" prefHeight="25.0" prefWidth="143.0" promptText=" Rechercher..." style="-fx-background-color: 'gray';" />
       <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="664.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../Taxfinalch/src/main/resources/taxi/images/icons8-google-web-recherche-48.png" />
+            <!-- <Image url="@../../../../../../Taxfinalch/src/main/resources/taxi/images/icons8-google-web-recherche-48.png" /> -->
          </image>
       </ImageView>
       <Button fx:id="searchEmploy" layoutX="700.0" layoutY="45.0" mnemonicParsing="false" onAction="#search" onMouseClicked="#searchemploye" prefHeight="25.0" prefWidth="68.0" text="chercher" />
