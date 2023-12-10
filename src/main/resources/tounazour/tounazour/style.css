@@ -16,3 +16,18 @@
 .button:pressed {
     -fx-background-color: #909191; /* Background color when pressed */
 }
+
+/* Customize the default button style */
+.custom-button {
+    -fx-background-color:  #197274; /* Green background color */
+    -fx-text-fill: #fff; /* White text color */
+    -fx-font-size: 14px; /* Font size */
+    -fx-padding: 8px 16px; /* Padding */
+    -fx-border-radius: 5px; /* Border radius */
+    -fx-cursor: hand; /* Cursor on hover */
+}
+
+/* Hover effect */
+.custom-button:hover {
+    -fx-background-color: #45a049; /* Darker green on hover */
+}
