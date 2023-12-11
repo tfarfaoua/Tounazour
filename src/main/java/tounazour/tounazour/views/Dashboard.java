@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
 
 public class Dashboard implements Initializable {
 
-    String url = "jdbc:mysql://localhost/**************";
+    String url = "jdbc:mysql://localhost/tounazour";
     String username="root";
     String password="";
     Connection con;
@@ -35,7 +35,7 @@ public class Dashboard implements Initializable {
 
     public void navbarhomeinformation(){
         try{
-            ps=con.prepareStatement("SELECT COUNT(*) as nb FROM reservation");
+            ps=con.prepareStatement("SELECT COUNT(*) as nb FROM Employee");
             rs=ps.executeQuery();
 
             while (rs.next()){
@@ -44,7 +44,29 @@ public class Dashboard implements Initializable {
         }catch (Exception e){
             System.out.println(e);
         }
+
+        try{
+            ps=con.prepareStatement("SELECT COUNT(*) as nb FROM honey");
+            rs=ps.executeQuery();
+
+            while (rs.next()){
+                this.honey_id.setText(rs.getString("nb"));
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        try{
+            ps=con.prepareStatement("SELECT COUNT(*) as nb FROM bee_supplies");
+            rs=ps.executeQuery();
+
+            while (rs.next()){
+                this.bee_ss_id.setText(rs.getString("nb"));
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -56,6 +78,8 @@ public class Dashboard implements Initializable {
         }
 
         this.date_id.setText(java.time.LocalDate.now().toString());
+
+        this.navbarhomeinformation();
 
     }
 }

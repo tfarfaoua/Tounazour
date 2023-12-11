@@ -59,3 +59,30 @@ CREATE TABLE `register` (
 LOCK TABLES `register` WRITE;
 INSERT INTO `register` VALUES (1,'taoufiq','taoufiq');
 UNLOCK TABLES;
+
+
+
+CREATE TABLE Employee (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    CIN VARCHAR(50),
+    LastName VARCHAR(50),
+    JobTitle VARCHAR(100),
+    Salary DECIMAL(10, 2),
+    HireDate DATE
+);
+
+create table honey(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  htype varchar(50),
+  quantity int(50),
+  price int(50)
+);
+
+
+CREATE TABLE bee_supplies (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    beebox VARCHAR(50),
+    farmer_wear VARCHAR(50),
+    tools VARCHAR(50)
+);
