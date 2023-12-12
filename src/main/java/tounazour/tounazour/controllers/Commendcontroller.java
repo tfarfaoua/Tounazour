@@ -138,12 +138,12 @@ tablecommandes.getItems().add(commande);
     void getItem(){
         tablecommandes.setOnMouseClicked(event ->{
 
-            name.setText(tablecommandes.getSelectionModel().getSelectedItems().getFirst().getName());
+            name.setText(tablecommandes.getSelectionModel().getSelectedItem().getName());
 
-            date.setValue(LocalDate.parse((tablecommandes.getSelectionModel().getSelectedItems().getFirst().getDate())) );
-            produit.setText(tablecommandes.getSelectionModel().getSelectedItems().getFirst().getProduit());
-            quantite.setText(String.valueOf(tablecommandes.getSelectionModel().getSelectedItems().getFirst().getQuantite()));
-            id.setText(String.valueOf(tablecommandes.getSelectionModel().getSelectedItems().getFirst().getId()));
+            date.setValue(LocalDate.parse((tablecommandes.getSelectionModel().getSelectedItem().getDate())) );
+            produit.setText(tablecommandes.getSelectionModel().getSelectedItem().getProduit());
+            quantite.setText(String.valueOf(tablecommandes.getSelectionModel().getSelectedItem().getQuantite()));
+            id.setText(String.valueOf(tablecommandes.getSelectionModel().getSelectedItem().getId()));
         } );
     }
     @FXML

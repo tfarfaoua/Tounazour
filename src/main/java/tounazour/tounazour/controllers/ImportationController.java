@@ -175,13 +175,13 @@ public class ImportationController {
     void getItem() {
         tableimportation.setOnMouseClicked(event -> {
 
-            name.setText(tableimportation.getSelectionModel().getSelectedItems().getFirst().getName());
+            name.setText(tableimportation.getSelectionModel().getSelectedItem().getName());
 
-            date.setValue(LocalDate.parse((tableimportation.getSelectionModel().getSelectedItems().getFirst().getDate())));
-            produit.setText(tableimportation.getSelectionModel().getSelectedItems().getFirst().getProduit());
-            quantite.setText(String.valueOf(tableimportation.getSelectionModel().getSelectedItems().getFirst().getQuantite()));
-            id.setText(String.valueOf(tableimportation.getSelectionModel().getSelectedItems().getFirst().getId()));
-            prix.setText(String.valueOf(tableimportation.getSelectionModel().getSelectedItems().getFirst().getPrix()));
+            date.setValue(LocalDate.parse((tableimportation.getSelectionModel().getSelectedItem().getDate())));
+            produit.setText(tableimportation.getSelectionModel().getSelectedItem().getProduit());
+            quantite.setText(String.valueOf(tableimportation.getSelectionModel().getSelectedItem().getQuantite()));
+            id.setText(String.valueOf(tableimportation.getSelectionModel().getSelectedItem().getId()));
+            prix.setText(String.valueOf(tableimportation.getSelectionModel().getSelectedItem().getPrix()));
         });
     }
 

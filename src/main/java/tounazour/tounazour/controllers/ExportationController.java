@@ -118,13 +118,13 @@ public class ExportationController {
     void getItem(){
         tableexportation.setOnMouseClicked(event ->{
 
-            name.setText(tableexportation.getSelectionModel().getSelectedItems().getFirst().getName());
+            name.setText(tableexportation.getSelectionModel().getSelectedItem().getName());
 
-            date.setValue(LocalDate.parse((tableexportation.getSelectionModel().getSelectedItems().getFirst().getDate())) );
-            produit.setText(tableexportation.getSelectionModel().getSelectedItems().getFirst().getProduit());
-            quantite.setText(String.valueOf(tableexportation.getSelectionModel().getSelectedItems().getFirst().getQuantite()));
-            id.setText(String.valueOf(tableexportation.getSelectionModel().getSelectedItems().getFirst().getId()));
-            prix.setText(String.valueOf(tableexportation.getSelectionModel().getSelectedItems().getFirst().getPrix()));
+            date.setValue(LocalDate.parse((tableexportation.getSelectionModel().getSelectedItem().getDate())) );
+            produit.setText(tableexportation.getSelectionModel().getSelectedItem().getProduit());
+            quantite.setText(String.valueOf(tableexportation.getSelectionModel().getSelectedItem().getQuantite()));
+            id.setText(String.valueOf(tableexportation.getSelectionModel().getSelectedItem().getId()));
+            prix.setText(String.valueOf(tableexportation.getSelectionModel().getSelectedItem().getPrix()));
         } );
     }
     @FXML
