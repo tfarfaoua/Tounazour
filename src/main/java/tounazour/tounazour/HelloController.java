@@ -46,9 +46,7 @@ public class HelloController implements Initializable {
     public void exportation(MouseEvent mouseEvent) {
         loadPage("exportation");
     }
-    public void importation(MouseEvent mouseEvent) {
-        loadPage("importation");
-    }
+    public void importation(MouseEvent mouseEvent) { loadPage("importation");}
 
     private void loadPage(String page) {
         Parent root=null;

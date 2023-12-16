@@ -4,11 +4,17 @@ package tounazour.tounazour.controllers;
 
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -23,8 +29,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class ExportationController {
     @FXML
@@ -252,6 +261,81 @@ public class ExportationController {
             fileInputStream.close();
         }
     }
+    public class HelloController implements Initializable {
+
+        @FXML
+        private BorderPane body;
+
+        @FXML
+        private AnchorPane app;
+
+        @Override
+        public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        }
+
+        public void dashboard(MouseEvent mouseEvent) {
+            loadPage("dashboard");
+        }
+
+
+        public void supplies(MouseEvent mouseEvent) {
+            loadPage("bee_supplies");
+        }
+
+        public void home(MouseEvent mouseEvent) {
+            loadPage("Home");
+        }
+
+        public void command(MouseEvent mouseEvent) {
+            loadPage("Commend");
+        }
+        public void exportation(MouseEvent mouseEvent) {
+            loadPage("exportation");
+        }
+        public void importation(MouseEvent mouseEvent) {
+            loadPage("importation");
+        }
+
+        private void loadPage(String page) {
+            Parent root=null;
+            try {
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(page + ".fxml")));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            body.setCenter(root);
+        }
+    }
+    @FXML
+    void searchExportation() {
+        String searchTerm = null; // Obtenir le terme de recherche depuis un champ de texte ou autre source;
+
+        try {
+            stmt = con.prepareStatement("SELECT * FROM exportation WHERE FournisseurName LIKE ?");
+            stmt.setString(1, "%" + searchTerm + "%");
+            rs = stmt.executeQuery();
+
+            tableexportation.getItems().clear();
+
+            while (rs.next()) {
+                Exportation exportation = new Exportation(
+                        rs.getString("FournisseurName"),
+                        rs.getString("DateExportation"),
+                        rs.getString("ProduitExporter"),
+                        rs.getInt("Id"),
+                        rs.getInt("Quantité"),
+                        rs.getInt("Prix")
+                );
+                tableexportation.getItems().add(exportation);
+            }
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la recherche : " + e.getMessage());
+            e.printStackTrace(); // Afficher la trace complète de l'erreur pour un débogage approfondi
+        }
+    }
+
 
 
 }
