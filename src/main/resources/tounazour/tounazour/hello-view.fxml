@@ -34,7 +34,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#supplies" prefHeight="45.0" prefWidth="276.0" stylesheets="@style.css" text="Bee supplies" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
+            <Button mnemonicParsing="false" onMouseClicked="#supplies" prefHeight="45.0" prefWidth="276.0" stylesheets="@style.css" text="Sales" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
                <font>
                   <Font size="14.0" />
                </font>

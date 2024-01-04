@@ -7,8 +7,6 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
@@ -37,10 +35,10 @@
          </columns>
       </TableView>
       <Label alignment="CENTER" layoutX="278.0" layoutY="41.0" styleClass="title" text="LISTE DES COMMANDES" />
-      <ButtonBar layoutX="223.0" layoutY="395.0" prefHeight="46.0" prefWidth="409.0" >
+      <ButtonBar layoutX="223.0" layoutY="395.0" prefHeight="46.0" prefWidth="409.0">
          <buttons>
             <Button fx:id="ajouterCh" mnemonicParsing="false" onAction="#Ajouter" prefHeight="25.0" prefWidth="118.0" text="Save" />
-            <Button fx:id="modifierCh" layoutX="135.0" layoutY="18.0" mnemonicParsing="false"  text="Update" />
+            <Button fx:id="modifierCh" layoutX="135.0" layoutY="18.0" mnemonicParsing="false" text="Update" />
             <Button fx:id="suppCh" layoutX="50.0" layoutY="18.0" mnemonicParsing="false" onAction="#Supprimer" text="Delete" />
          </buttons>
          <styleClass>
@@ -51,11 +49,6 @@
       <Text layoutX="14.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id :" />
       <TextField fx:id="idCh" layoutX="47.0" layoutY="78.0" prefHeight="39.0" prefWidth="251.0" promptText="enter your id" />
       <TextField fx:id="searchCh" layoutX="546.0" layoutY="45.0" prefHeight="25.0" prefWidth="143.0" promptText=" Rechercher..." style="-fx-background-color: 'gray';" />
-      <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="664.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <!-- <Image url="@../../../../../../Taxfinalch/src/main/resources/taxi/images/icons8-google-web-recherche-48.png" /> -->
-         </image>
-      </ImageView>
       <Button fx:id="searchEmploy" layoutX="700.0" layoutY="45.0" mnemonicParsing="false" onAction="#search" onMouseClicked="#searchemploye" prefHeight="25.0" prefWidth="68.0" text="chercher" />
    </children>
 </AnchorPane>
