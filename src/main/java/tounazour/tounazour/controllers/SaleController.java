@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -45,6 +46,9 @@ public class SaleController implements Initializable {
     PreparedStatement pst = null;
     ResultSet rs = null;
     Sale_info sale = null;
+
+    @FXML
+    private TextField Search;
     //add sale
     @FXML
     public void getAdd(javafx.scene.input.MouseEvent mouseEvent) {
@@ -112,7 +116,53 @@ public class SaleController implements Initializable {
         tableView.getItems().remove(selected);
 
     }
+    //SEARCH EMPLOYEES
+    @FXML
+    public void IconClicked(javafx.scene.input.MouseEvent mouseEvent){
+        String recherche =Search.getText().toString();
+        System.out.println(recherche);
+        for ( int i = 0; i<tableView.getItems().size(); i++) {
+            tableView.getItems().clear();
+        }
+        try {
+            ConnexionMysql connectionClass = new ConnexionMysql();
+            Connection conn= connectionClass.connexionDB();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM `Sale_info` where id='"+recherche+"';");
 
+            while (rs.next()) {
+                Tlist.add(new Sale_info(
+                        rs.getInt("id"),
+                        rs.getString("Honey_type"),
+                        rs.getString("Quantity"),
+                        rs.getString("Total"),
+                        rs.getString("Farm"),
+                        rs.getString("Client")
+
+
+                ));
+                tableView.setItems(Tlist);
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        Honey_type.setCellValueFactory(new PropertyValueFactory<>("Honey_type"));
+        Quantity.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
+        Total.setCellValueFactory(new PropertyValueFactory<>("Total"));
+        Farm.setCellValueFactory(new PropertyValueFactory<>("Farm"));
+        Client.setCellValueFactory(new PropertyValueFactory<>("Client"));
+        tableView.setItems(Tlist);
+
+
+
+
+
+
+    }
     // UPDATE Sales
     @FXML
     public void updateSale(javafx.scene.input.MouseEvent mouseEvent) {
@@ -129,7 +179,7 @@ public class SaleController implements Initializable {
 
         SaleFormulaireController saleFormulaireController = loader.getController();
         saleFormulaireController.setUpdate(true);
-        saleFormulaireController.setTextField(sale.getHoney_type(), sale.getQuantity(), sale.getTotal(), sale.getFarm(), sale.getClient());
+        saleFormulaireController.setTextField(sale.getId(), sale.getHoney_type(), sale.getQuantity(), sale.getTotal(), sale.getFarm(), sale.getClient());
 
         Parent parent = loader.getRoot();
         Stage stage = new Stage();
@@ -137,5 +187,6 @@ public class SaleController implements Initializable {
         stage.initStyle(StageStyle.UTILITY);
         stage.show();
     }
+
 
 }

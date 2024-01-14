@@ -39,7 +39,7 @@
       </HBox>
       <HBox layoutX="328.0" layoutY="322.0" prefHeight="24.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onMouseClicked="#handleUpdate"  prefHeight="28.0" prefWidth="203.0" style="-fx-background-color: #0ca2a4; -fx-background-radius: 5;" text="Update Sale" textFill="WHITE" />
+            <Button mnemonicParsing="false" onMouseClicked="#AddSale"  prefHeight="28.0" prefWidth="203.0" style="-fx-background-color: #0ca2a4; -fx-background-radius: 5;" text="Update Sale" textFill="WHITE" />
          </children>
       </HBox>
       <Label layoutX="117.0" layoutY="24.0" text="WELCOME TO ADD OR UPDATE SALE" textAlignment="CENTER" textFill="#197274">

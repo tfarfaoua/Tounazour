@@ -21,8 +21,6 @@ import java.util.logging.Logger;
 
 public class SaleFormulaireController implements Initializable {
     @FXML
-    private TextField id;
-    @FXML
     private TextField Honey_type;
     @FXML
     private TextField Quantity;
@@ -37,6 +35,7 @@ public class SaleFormulaireController implements Initializable {
     Connection conn = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
+    int saleid;
 
     @FXML
 
@@ -56,6 +55,7 @@ public class SaleFormulaireController implements Initializable {
             alert.setContentText("please fill all data");
             alert.showAndWait();
         } else {
+            getQuery();
             insertData(honey_type, quantity, total, farm, client);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
@@ -67,13 +67,17 @@ public class SaleFormulaireController implements Initializable {
 
     private void insertData(String honeyType, String quantity, String total, String farm, String client) {
         try {
-            String query = "INSERT INTO Sale_info(Honey_type, Quantity, Total, Farm, Client) VALUES (?,?,?,?,?)";
+            getQuery();  // Call getQuery to set the correct query
             pst = conn.prepareStatement(query);
             pst.setString(1, honeyType);
             pst.setString(2, quantity);
             pst.setString(3, total);
             pst.setString(4, farm);
             pst.setString(5, client);
+
+            if (update) {
+                pst.setInt(6, saleid);  // Set the id for update
+            }
 
             pst.executeUpdate();
         } catch (SQLException ex) {
@@ -92,6 +96,14 @@ public class SaleFormulaireController implements Initializable {
         }
     }
 
+
+    private void getQuery() {
+        if (!update) {
+            query = "INSERT INTO Sale_info(Honey_type, Quantity, Total, Farm, Client) VALUES (?,?,?,?,?)";
+        } else {
+            query = "UPDATE Sale_info SET Honey_type=?, Quantity=?, Total=?, Farm=?, Client=? WHERE id=?";
+        }
+    }
 
 
 
@@ -112,7 +124,9 @@ public class SaleFormulaireController implements Initializable {
         this.update = update;
     }
 
-    public void setTextField(String honey_type, String quantity, String total, String farm, String client) {
+    public void setTextField(int id,String honey_type, String quantity, String total, String farm, String client) {
+
+        saleid=id;
         Honey_type.setText(honey_type);
         Quantity.setText(quantity);
         Total.setText(total);
@@ -121,50 +135,8 @@ public class SaleFormulaireController implements Initializable {
     }
 
 
-    
-    @FXML
-    public void handleUpdate(MouseEvent mouseEvent) {
-        // Retrieve the updated data from the text fields
-        String updatedHoneyType = Honey_type.getText();
-        String updatedQuantity = Quantity.getText();
-        String updatedTotal = Total.getText();
-        String updatedFarm = Farm.getText();
-        String updatedClient = Client.getText();
 
-        // Perform the update operation using the retrieved data
-        try {
-            ConnexionMysql connectionClass = new ConnexionMysql();
-            Connection conn = connectionClass.connexionDB();
 
-            // Assuming the id of the sale you want to update is stored in the id text field
-            int saleId = 0; // Initialize with a default value
-
-            // Retrieve the Sale_info object from the database based on other properties
-            Sale_info existingSale = getSaleFromDatabase(updatedHoneyType, updatedQuantity, updatedTotal, updatedFarm, updatedClient);
-
-            if (existingSale != null) {
-                saleId = existingSale.getId();
-            }
-
-            // Update the Sale_info table with the new data
-            String updateQuery = "UPDATE Sale_info SET Honey_type=?, Quantity=?, Total=?, Farm=?, Client=? WHERE id=?";
-            PreparedStatement updateStatement = conn.prepareStatement(updateQuery);
-            updateStatement.setString(1, updatedHoneyType);
-            updateStatement.setString(2, updatedQuantity);
-            updateStatement.setString(3, updatedTotal);
-            updateStatement.setString(4, updatedFarm);
-            updateStatement.setString(5, updatedClient);
-            updateStatement.setInt(6, saleId);
-
-            updateStatement.executeUpdate();
-
-            // Close the SaleFormulaire stage after the update
-            Stage stage = (Stage) Honey_type.getScene().getWindow();
-            stage.close();
-        } catch (SQLException e) {
-            Logger.getLogger(SaleFormulaireController.class.getName()).log(Level.SEVERE, null, e);
-        }
-    }
 
     // Helper method to retrieve Sale_info from the database based on other properties
     private Sale_info getSaleFromDatabase(String honeyType, String quantity, String total, String farm, String client) {
