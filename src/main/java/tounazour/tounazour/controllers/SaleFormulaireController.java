@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import tounazour.tounazour.ConnexionMysql;
+import tounazour.tounazour.models.Sale_info;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -119,8 +120,10 @@ public class SaleFormulaireController implements Initializable {
         Client.setText(client);
     }
 
+
+    
     @FXML
-    public void handleUpdate(javafx.scene.input.MouseEvent mouseEvent) {
+    public void handleUpdate(MouseEvent mouseEvent) {
         // Retrieve the updated data from the text fields
         String updatedHoneyType = Honey_type.getText();
         String updatedQuantity = Quantity.getText();
@@ -129,10 +132,47 @@ public class SaleFormulaireController implements Initializable {
         String updatedClient = Client.getText();
 
         // Perform the update operation using the retrieved data
-        // You can update the database or perform any other necessary actions
+        try {
+            ConnexionMysql connectionClass = new ConnexionMysql();
+            Connection conn = connectionClass.connexionDB();
 
-        // Close the SaleFormulaire stage after the update
-        Stage stage = (Stage) Honey_type.getScene().getWindow();
-        stage.close();
+            // Assuming the id of the sale you want to update is stored in the id text field
+            int saleId = 0; // Initialize with a default value
+
+            // Retrieve the Sale_info object from the database based on other properties
+            Sale_info existingSale = getSaleFromDatabase(updatedHoneyType, updatedQuantity, updatedTotal, updatedFarm, updatedClient);
+
+            if (existingSale != null) {
+                saleId = existingSale.getId();
+            }
+
+            // Update the Sale_info table with the new data
+            String updateQuery = "UPDATE Sale_info SET Honey_type=?, Quantity=?, Total=?, Farm=?, Client=? WHERE id=?";
+            PreparedStatement updateStatement = conn.prepareStatement(updateQuery);
+            updateStatement.setString(1, updatedHoneyType);
+            updateStatement.setString(2, updatedQuantity);
+            updateStatement.setString(3, updatedTotal);
+            updateStatement.setString(4, updatedFarm);
+            updateStatement.setString(5, updatedClient);
+            updateStatement.setInt(6, saleId);
+
+            updateStatement.executeUpdate();
+
+            // Close the SaleFormulaire stage after the update
+            Stage stage = (Stage) Honey_type.getScene().getWindow();
+            stage.close();
+        } catch (SQLException e) {
+            Logger.getLogger(SaleFormulaireController.class.getName()).log(Level.SEVERE, null, e);
+        }
     }
+
+    // Helper method to retrieve Sale_info from the database based on other properties
+    private Sale_info getSaleFromDatabase(String honeyType, String quantity, String total, String farm, String client) {
+        // Implement the logic to retrieve the Sale_info object from the database based on the provided properties
+        // You may need to customize this based on your database schema and structure
+        // Return null if the Sale_info is not found
+        return null;
+    }
+
+
 }

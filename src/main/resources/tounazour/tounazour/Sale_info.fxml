@@ -45,7 +45,7 @@
             <Insets right="10.0" />
          </padding>
       </Button>
-      <Button id="Update Sale" layoutX="222.0" layoutY="304.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #0ca2a4;" text="Update Sale" textFill="WHITE">
+      <Button id="Update Sale" layoutX="222.0" layoutY="304.0" mnemonicParsing="false" onMouseClicked="#updateSale"  prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #0ca2a4;" text="Update Sale" textFill="WHITE">
          <padding>
             <Insets right="10.0" />
          </padding>
