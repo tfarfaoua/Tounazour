@@ -52,12 +52,7 @@ public class Commendcontroller {
             System.out.println(e.toString());
         }
 
-
-
-
-
-
-        columnName.setCellValueFactory(new PropertyValueFactory<>("id"));
+        columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
         columnName.setCellValueFactory(new PropertyValueFactory<>("name"));
         columnDate.setCellValueFactory(new PropertyValueFactory<>("date"));
         columnProduit.setCellValueFactory(new PropertyValueFactory<>("produit"));
@@ -68,35 +63,40 @@ public class Commendcontroller {
 
 @FXML
     void saveDate(){
-       int commandeID =Integer.parseInt(id.getText());
     int commandeQT =Integer.parseInt(quantite.getText());
-        Commande commande = new Commande(name.getText(), date.getValue().toString(), produit.getText(), commandeID ,commandeQT);
   try {
-      stmt = con.prepareStatement("INSERT INTO `commande`(`ClientName`, `DateCommande`, `ProduitCommander`, `Quantité`,`Id`) VALUES (?,?,?,?,? )  ");
-      stmt.setInt(1,commandeID);
-         stmt.setString(2,name.getText());
-      stmt.setString(3,date.getValue().toString());
-      stmt.setString(4,produit.getText());
-      stmt.setInt(5,commandeQT);
+      stmt = con.prepareStatement("INSERT INTO `commande`(ClientName, `ProduitCommander`,`Quantité`, `DateCommande`) VALUES (?,?,?,? )");
+         stmt.setString(1,name.getText());
+      stmt.setString(2,produit.getText());
+      stmt.setInt(3,commandeQT);
+      stmt.setString(4,date.getValue().toString());
       stmt.executeUpdate();
+
+      System.out.println("ajoutit commande");
+
   }catch(Exception e){
       System.out.println(e.toString());
   }
 
-tablecommandes.getItems().add(commande);
-
-
+  getData();
 
     }
 
     void getData (){
+
+        tablecommandes.getItems().clear();
+        System.out.println("khwit la table");
+
         try {
             stmt = con.prepareStatement("SELECT * FROM `commande`  ");
             rs = stmt.executeQuery();
+            System.out.println("jbt les donnes mn la base");
             while (rs.next()){
                 Commande commande = new Commande(rs.getString("ClientName"), rs.getString("DateCommande"), rs.getString("ProduitCommander"), rs.getInt("Quantité"),rs.getInt("Id") );
                 tablecommandes.getItems().add(commande);
             }
+            System.out.println("3mmert la table");
+
         }catch (Exception e){
             System.out.println(e.toString());
         }
@@ -155,5 +155,6 @@ tablecommandes.getItems().add(commande);
         id.clear();
 
     }
+
 
 }

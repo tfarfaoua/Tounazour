@@ -73,6 +73,9 @@
       </VBox>
    </left>
    <center>
-      <AnchorPane fx:id="app" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
+      <AnchorPane fx:id="app" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="139.0" layoutY="113.0" prefHeight="55.0" prefWidth="80.0" text="dashboeard" />
+         </children></AnchorPane>
    </center>
 </BorderPane>
