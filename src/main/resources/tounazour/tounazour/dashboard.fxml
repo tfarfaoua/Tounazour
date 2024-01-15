@@ -94,20 +94,20 @@
             </AnchorPane>
          </children>
       </HBox>
-      <BarChart layoutX="20.0" layoutY="199.0" prefHeight="400.0" prefWidth="561.0">
+      <BarChart fx:id="barcharttona" layoutX="20.0" layoutY="199.0" prefHeight="400.0" prefWidth="561.0">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis fx:id="X" side="BOTTOM" />
         </xAxis>
         <yAxis>
-          <NumberAxis side="LEFT" />
+          <NumberAxis fx:id="Y" side="LEFT" />
         </yAxis>
       </BarChart>
-      <LineChart layoutX="623.0" layoutY="199.0" prefHeight="400.0" prefWidth="567.0">
+      <LineChart fx:id="LineCharttona" layoutX="623.0" layoutY="199.0" prefHeight="400.0" prefWidth="567.0">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis fx:id="XL" side="BOTTOM" />
         </xAxis>
         <yAxis>
-          <NumberAxis side="LEFT" />
+          <NumberAxis fx:id="YL" side="LEFT" />
         </yAxis>
       </LineChart>
       <AnchorPane layoutX="620.0" layoutY="615.0" prefHeight="168.0" prefWidth="572.0" style="-fx-background-color: #FFFF; -fx-background-radius: 5;">
