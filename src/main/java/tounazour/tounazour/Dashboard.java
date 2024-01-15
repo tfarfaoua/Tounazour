@@ -1,4 +1,4 @@
-package tounazour.tounazour.views;
+package tounazour.tounazour;
 
 import javafx.fxml.FXML;
 

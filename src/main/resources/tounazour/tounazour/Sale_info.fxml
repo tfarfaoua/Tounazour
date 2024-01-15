@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tounazour.tounazour.controllers.SaleController">
+   <children>
+      <HBox layoutY="-1.0" prefHeight="51.0" prefWidth="600.0" style="-fx-background-color: #197274;">
+         <children>
+            <Label text="     Sale info" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+
+      <HBox layoutX="26.0" layoutY="64.0" prefHeight="32.0" prefWidth="538.0" style="-fx-background-color: #ffffff; -fx-background-radius: 5;">
+         <children>
+            <TextField fx:id="Search" prefHeight="32.0" prefWidth="171.0" promptText="Search" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+               <padding>
+                  <Insets top="4.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets top="4.0" />
+               </HBox.margin></TextField>
+            <Button mnemonicParsing="false" onMouseClicked="#IconClicked" prefHeight="21.0" prefWidth="71.0" style="-fx-background-color: #197274;">
+               <HBox.margin>
+                  <Insets bottom="4.0" left="20.0" right="20.0" top="10.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="4.0" />
+               </padding>
+            </Button>
+         </children></HBox>
+      <TableView fx:id="tableView" layoutX="12.0" layoutY="109.0" prefHeight="183.0" prefWidth="550.0">
+         <columns>
+            <TableColumn fx:id="id" text="ID" />
+            <TableColumn fx:id="Honey_type" text="Honey Type" />
+            <TableColumn fx:id="Quantity" prefWidth="77.0" text="Qantity" />
+            <TableColumn fx:id="Total" prefWidth="83.0" text="Total" />
+            <TableColumn fx:id="Farm" text="Farm" />
+            <TableColumn fx:id="Client" minWidth="0.0" text="Client" />
+
+
+            <!-- ... other columns ... -->
+         </columns>
+      </TableView>
+      <Label layoutX="186.0" layoutY="350.0" text="add id" textFill="#f8f7f7" />
+      <Button id="Add sale" layoutX="34.0" layoutY="304.0" mnemonicParsing="false" onMouseClicked="#getAdd" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #0ca2a4;" text="Add Sale" textFill="#fffefe">
+         <padding>
+            <Insets right="10.0" />
+         </padding>
+      </Button>
+      <Button id="Update Sale" layoutX="222.0" layoutY="304.0" mnemonicParsing="false" onMouseClicked="#updateSale" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #0ca2a4;" text="Update Sale" textFill="WHITE">
+         <padding>
+            <Insets right="10.0" />
+         </padding>
+      </Button>
+      <Button id="Delete" layoutX="432.0" layoutY="304.0" mnemonicParsing="false" onMouseClicked="#Delete" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #0ca2a4;" text="Delet Sale" textFill="WHITE">
+         <padding>
+            <Insets right="10.0" />
+         </padding>
+      </Button>
+   </children>
+</AnchorPane>

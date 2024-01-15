@@ -33,7 +33,10 @@ public class HelloController implements Initializable {
 
 
     public void supplies(MouseEvent mouseEvent) {
-        loadPage("bee_supplies");
+        loadPage("Sale_info");
+    }
+    private void addSale() {
+        loadPage("sale_formulaire");
     }
 
     public void home(MouseEvent mouseEvent) {

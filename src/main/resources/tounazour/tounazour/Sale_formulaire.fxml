@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #CEECEC;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tounazour.tounazour.controllers.SaleFormulaireController">
+   <children>
+      <HBox layoutX="200.0" layoutY="133.0" prefHeight="35.0" prefWidth="200.0" />
+      <HBox layoutX="347.0" layoutY="74.0" prefHeight="35.0" prefWidth="200.0">
+         <children>
+            <TextField fx:id="Quantity" prefHeight="33.0" prefWidth="194.0" promptText="Quantity" />
+         </children>
+      </HBox>
+      <HBox layoutX="43.0" layoutY="74.0" prefHeight="35.0" prefWidth="200.0">
+         <children>
+            <TextField fx:id="Honey_type" prefHeight="33.0" prefWidth="194.0" promptText="Honey type" />
+         </children>
+      </HBox>
+      <HBox layoutX="43.0" layoutY="151.0" prefHeight="35.0" prefWidth="200.0">
+         <children>
+            <TextField fx:id="Total" prefHeight="33.0" prefWidth="194.0" promptText="Total" />
+         </children>
+      </HBox>
+      <HBox layoutX="200.0" layoutY="213.0" prefHeight="35.0" prefWidth="200.0">
+         <children>
+            <TextField fx:id="Client" prefHeight="33.0" prefWidth="194.0" promptText="Client" />
+         </children>
+      </HBox>
+      <HBox layoutX="347.0" layoutY="151.0" prefHeight="35.0" prefWidth="200.0">
+         <children>
+            <TextField fx:id="Farm" prefHeight="33.0" prefWidth="194.0" promptText="Farm" />
+         </children>
+      </HBox>
+      <HBox layoutX="36.0" layoutY="322.0" prefHeight="24.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#AddSale" prefHeight="28.0" prefWidth="203.0" style="-fx-background-color: #0ca2a4; -fx-background-radius: 5;" text="Add Sale" textFill="WHITE" />
+         </children>
+      </HBox>
+      <HBox layoutX="328.0" layoutY="322.0" prefHeight="24.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#AddSale"  prefHeight="28.0" prefWidth="203.0" style="-fx-background-color: #0ca2a4; -fx-background-radius: 5;" text="Update Sale" textFill="WHITE" />
+         </children>
+      </HBox>
+      <Label layoutX="117.0" layoutY="24.0" text="WELCOME TO ADD OR UPDATE SALE" textAlignment="CENTER" textFill="#197274">
+         <font>
+            <Font name="Comic Sans MS" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

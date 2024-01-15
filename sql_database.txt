@@ -74,15 +74,10 @@ CREATE TABLE Employee (
 
 create table honey(
   id INT AUTO_INCREMENT PRIMARY KEY,
-  htype varchar(50),
-  quantity int(50),
-  price int(50)
+  Honey_type varchar(100),
+  quantity int(100),
+  Total float(1000),
+  Farm varchar (100),
+  Client varchar(50),
 );
 
-
-CREATE TABLE bee_supplies (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    beebox VARCHAR(50),
-    farmer_wear VARCHAR(50),
-    tools VARCHAR(50)
-);

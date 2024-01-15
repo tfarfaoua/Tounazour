@@ -250,8 +250,8 @@ public class employeController implements Initializable {
 
     public void initialize(URL arg0, ResourceBundle argl) {
 
-        cnx = ConnexionMysql.connexionDB();
-        getAllData();
+       // cnx = ConnexionMysql.connexionDB();
+        //getAllData();
             }
 
     public void searchemploye(MouseEvent mouseEvent) {
