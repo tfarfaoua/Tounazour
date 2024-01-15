@@ -1,18 +1,33 @@
 .button {
-    -fx-background-color: #a2a1a1; /* Background color */
-    -fx-text-fill: white; /* Text color */
-    -fx-font-size: 16px; /* Font size */
-    -fx-padding: 10px;
-    -fx-pref-height: 40px; /* Preferred height */
-    -fx-text-fill: black;
-    -fx-font-weight: bold;
-    -fx-letter-spacing: 5px;
+    -fx-background-color:  #197274; /* Green background color */
+    -fx-text-fill: #fff; /* White text color */
+    -fx-font-size: 14px; /* Font size */
+    -fx-padding: 8px 16px; /* Padding */
+    -fx-border-radius: 5px; /* Border radius */
+    -fx-cursor: hand; /* Cursor on hover */
+    -fx-font-weight: bold; /* Set the font weight to bold */
 }
 
 .button:hover {
-    -fx-background-color: #9b9a9a; /* Background color on hover */
+    -fx-background-color: #eae3d5; /* Background color on hover */
+    -fx-text-fill: #063043; /* White text color */
 }
 
 .button:pressed {
-    -fx-background-color: #909191; /* Background color when pressed */
+    -fx-background-color: #d9d2c3; /* Background color when pressed */
+}
+
+/* Customize the default button style */
+.custom-button {
+    -fx-background-color:  #197274; /* Green background color */
+    -fx-text-fill: #fff; /* White text color */
+    -fx-font-size: 14px; /* Font size */
+    -fx-padding: 8px 16px; /* Padding */
+    -fx-border-radius: 5px; /* Border radius */
+    -fx-cursor: hand; /* Cursor on hover */
+}
+
+/* Hover effect */
+.custom-button:hover {
+    -fx-background-color: #45a049; /* Darker green on hover */
 }

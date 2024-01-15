@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="543.0" prefWidth="1006.0" styleClass="form_container" stylesheets="@commandestyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tounazour.tounazour.controllers.ExportationController">
+<AnchorPane prefHeight="543.0" prefWidth="1033.0" styleClass="form_container" stylesheets="@commandestyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tounazour.tounazour.controllers.ExportationController">
    <children>
       <VBox layoutX="14.0" layoutY="108.0" prefHeight="333.0" prefWidth="300.0" styleClass="form_container" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="118.0">
          <children>
@@ -51,7 +51,7 @@
             <Button fx:id="ExporteExel1" layoutX="390.0" layoutY="12.0" minWidth="50.0" mnemonicParsing="false" onAction="#importExcelFileToDataBase" prefHeight="35.0" prefWidth="106.0" text="Importer" />
         </buttons>
       </ButtonBar>
-      <Pane prefHeight="64.0" prefWidth="1007.0" style="-fx-background-color: #197274;">
+      <Pane prefHeight="64.0" prefWidth="1033.0" style="-fx-background-color: #197274;">
          <children>
             <Label layoutX="68.0" layoutY="15.0" styleClass="title" stylesheets="@commandestyle.css" text="Gestion des Produits Exporter">
                <font>
@@ -60,7 +60,7 @@
             </Label>
             <ImageView fitHeight="48.0" fitWidth="55.0" layoutX="14.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../Downloads/pngegg.png" />
+                  <Image url="@images/pngegg.png" />
                </image>
             </ImageView>
          </children>

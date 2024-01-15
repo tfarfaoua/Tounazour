@@ -58,6 +58,9 @@ public class ExportationController {
     PreparedStatement stmt ;
     ResultSet rs ;
 
+    @FXML
+    private TextField search;
+
 
 
 
@@ -127,13 +130,12 @@ public class ExportationController {
     void getItem(){
         tableexportation.setOnMouseClicked(event ->{
 
-            name.setText(tableexportation.getSelectionModel().getSelectedItems().getFirst().getName());
+            name.setText(tableexportation.getSelectionModel().getSelectedItem().getName());
 
-            date.setValue(LocalDate.parse((tableexportation.getSelectionModel().getSelectedItems().getFirst().getDate())) );
-            produit.setText(tableexportation.getSelectionModel().getSelectedItems().getFirst().getProduit());
-            quantite.setText(String.valueOf(tableexportation.getSelectionModel().getSelectedItems().getFirst().getQuantite()));
-            id.setText(String.valueOf(tableexportation.getSelectionModel().getSelectedItems().getFirst().getId()));
-            prix.setText(String.valueOf(tableexportation.getSelectionModel().getSelectedItems().getFirst().getPrix()));
+            date.setValue(LocalDate.parse((tableexportation.getSelectionModel().getSelectedItem().getDate())) );
+            produit.setText(tableexportation.getSelectionModel().getSelectedItem().getProduit());
+            quantite.setText(String.valueOf(tableexportation.getSelectionModel().getSelectedItem().getQuantite()));
+            prix.setText(String.valueOf(tableexportation.getSelectionModel().getSelectedItem().getPrix()));
         } );
     }
     @FXML
@@ -306,33 +308,38 @@ public class ExportationController {
             }
 
             body.setCenter(root);
+
         }
     }
     @FXML
     void searchExportation() {
-        String searchTerm = null; // Obtenir le terme de recherche depuis un champ de texte ou autre source;
+        if(search.getText().isEmpty()){
+            getData();
+        }else{
+            String searchTerm = search.getText(); // Obtenir le terme de recherche depuis un champ de texte ou autre source;
 
-        try {
-            stmt = con.prepareStatement("SELECT * FROM exportation WHERE FournisseurName LIKE ?");
-            stmt.setString(1, "%" + searchTerm + "%");
-            rs = stmt.executeQuery();
+            try {
+                stmt = con.prepareStatement("SELECT * FROM exportation WHERE FournisseurName LIKE ?");
+                stmt.setString(1, "%" + searchTerm + "%");
+                rs = stmt.executeQuery();
 
-            tableexportation.getItems().clear();
+                tableexportation.getItems().clear();
 
-            while (rs.next()) {
-                Exportation exportation = new Exportation(
-                        rs.getString("FournisseurName"),
-                        rs.getString("DateExportation"),
-                        rs.getString("ProduitExporter"),
-                        rs.getInt("Id"),
-                        rs.getInt("Quantité"),
-                        rs.getInt("Prix")
-                );
-                tableexportation.getItems().add(exportation);
+                while (rs.next()) {
+                    Exportation exportation = new Exportation(
+                            rs.getString("FournisseurName"),
+                            rs.getString("DateExportation"),
+                            rs.getString("ProduitExporter"),
+                            rs.getInt("Id"),
+                            rs.getInt("Quantité"),
+                            rs.getInt("Prix")
+                    );
+                    tableexportation.getItems().add(exportation);
+                }
+            } catch (Exception e) {
+                System.out.println("Erreur lors de la recherche : " + e.getMessage());
+                e.printStackTrace(); // Afficher la trace complète de l'erreur pour un débogage approfondi
             }
-        } catch (Exception e) {
-            System.out.println("Erreur lors de la recherche : " + e.getMessage());
-            e.printStackTrace(); // Afficher la trace complète de l'erreur pour un débogage approfondi
         }
     }
 

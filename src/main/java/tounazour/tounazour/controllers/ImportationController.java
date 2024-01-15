@@ -20,6 +20,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import javafx.stage.FileChooser;
 import tounazour.tounazour.ConnexionMysql;
+import tounazour.tounazour.models.Exportation;
 import tounazour.tounazour.models.Importation;
 
 public class ImportationController {
@@ -67,6 +68,8 @@ public class ImportationController {
         getData();
         getItem();
     }
+    @FXML
+    private TextField search;
 
     @FXML
     void saveData() {
@@ -175,13 +178,12 @@ public class ImportationController {
     void getItem() {
         tableimportation.setOnMouseClicked(event -> {
 
-            name.setText(tableimportation.getSelectionModel().getSelectedItems().getFirst().getName());
+            name.setText(tableimportation.getSelectionModel().getSelectedItem().getName());
 
-            date.setValue(LocalDate.parse((tableimportation.getSelectionModel().getSelectedItems().getFirst().getDate())));
-            produit.setText(tableimportation.getSelectionModel().getSelectedItems().getFirst().getProduit());
-            quantite.setText(String.valueOf(tableimportation.getSelectionModel().getSelectedItems().getFirst().getQuantite()));
-            id.setText(String.valueOf(tableimportation.getSelectionModel().getSelectedItems().getFirst().getId()));
-            prix.setText(String.valueOf(tableimportation.getSelectionModel().getSelectedItems().getFirst().getPrix()));
+            date.setValue(LocalDate.parse((tableimportation.getSelectionModel().getSelectedItem().getDate())));
+            produit.setText(tableimportation.getSelectionModel().getSelectedItem().getProduit());
+            quantite.setText(String.valueOf(tableimportation.getSelectionModel().getSelectedItem().getQuantite()));
+            prix.setText(String.valueOf(tableimportation.getSelectionModel().getSelectedItem().getPrix()));
         });
     }
 
@@ -283,6 +285,40 @@ public class ImportationController {
 
             workbook.close();
             fileInputStream.close();
+        }
+    }
+    @FXML
+    void searchImportation() {
+
+        if(search.getText().isEmpty()){
+            getData();
+        }else{
+            String searchTerm = search.getText(); // Obtenir le terme de recherche depuis un champ de texte ou autre source;
+
+            try {
+                stmt = con.prepareStatement("SELECT * FROM importation WHERE FournisseurName LIKE ?");
+                stmt.setString(1, "%" + searchTerm + "%");
+                rs = stmt.executeQuery();
+
+                tableimportation.getItems().clear();
+
+                while (rs.next()) {
+                    Importation importation =
+                            new Importation(
+                                    rs.getString("FournisseurName"),
+                                    rs.getString("DateImporter"),
+                                    rs.getString("Produitimporter"),
+                                    rs.getInt("Id"),
+                                    rs.getInt("Quantité"),
+                                    rs.getInt("Prix")
+                    );
+
+                    tableimportation.getItems().add(importation);
+                }
+            } catch (Exception e) {
+                System.out.println("Erreur lors de la recherche : " + e.getMessage());
+                e.printStackTrace(); // Afficher la trace complète de l'erreur pour un débogage approfondi
+            }
         }
     }
 }
