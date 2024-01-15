@@ -101,7 +101,7 @@ public class regController implements Initializable {
     void btnConnecterClicked(ActionEvent event) throws IOException {
         btnConnecterClicked.getScene().getWindow().hide();
         Stage Log=new Stage();
-        Parent root= FXMLLoader.load(getClass().getResource("login.fxml"));
+        Parent root= FXMLLoader.load(getClass().getResource("hello-veiw.fxml"));
         Scene scene=new Scene(root);
         Log.setScene(scene);
         Log.show();

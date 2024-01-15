@@ -34,7 +34,7 @@
             <TableColumn fx:id="cln_ferme" prefWidth="91.33333333333331" text="Ferme :" />
          </columns>
       </TableView>
-      <Label alignment="CENTER" layoutX="278.0" layoutY="41.0" styleClass="title" text="LISTE DES COMMANDES" />
+      <Label alignment="CENTER" layoutX="278.0" layoutY="41.0" styleClass="title" text="LISTE DES EMPLOYEE" />
       <ButtonBar layoutX="223.0" layoutY="395.0" prefHeight="46.0" prefWidth="409.0">
          <buttons>
             <Button fx:id="ajouterCh" mnemonicParsing="false" onAction="#Ajouter" prefHeight="25.0" prefWidth="118.0" text="Save" />

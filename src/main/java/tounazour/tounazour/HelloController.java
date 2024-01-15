@@ -40,7 +40,7 @@ public class HelloController implements Initializable {
     }
 
     public void home(MouseEvent mouseEvent) {
-        loadPage("Home");
+        loadPage("employe");
     }
 
     public void command(MouseEvent mouseEvent) {
