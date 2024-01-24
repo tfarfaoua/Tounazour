@@ -57,7 +57,7 @@ CREATE TABLE `register` (
 
 
 LOCK TABLES `register` WRITE;
-INSERT INTO `register` VALUES (1,'taoufiq','taoufiq');
+INSERT INTO `register` VALUES (1,'Admin','123');
 UNLOCK TABLES;
 
 
