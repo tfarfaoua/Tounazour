@@ -7,12 +7,15 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="491.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tounazour.tounazour.controllers.employeController">
+<AnchorPane prefHeight="491.0" prefWidth="806.0" stylesheets="@commandestyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tounazour.tounazour.controllers.employeController">
     <children>
         <VBox layoutX="14.0" layoutY="78.0" prefHeight="300.0" prefWidth="300.0" styleClass="form-container" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="118.0">
             <children>
@@ -22,11 +25,11 @@
                 <TextField fx:id="telCh" layoutX="10.0" layoutY="140.0" prefHeight="39.0" prefWidth="300.0" promptText="enter your phone" />
                 <Text layoutX="10.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CIN :" />
                 <TextField fx:id="cinCh" layoutX="10.0" layoutY="81.0" prefHeight="39.0" prefWidth="300.0" promptText="enter your CIN" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ferme :" />
-            <TextField fx:id="fermeCh" prefHeight="39.0" prefWidth="300.0" promptText="ferme" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Farm :" />
+            <TextField fx:id="fermeCh" prefHeight="39.0" prefWidth="300.0" promptText="farm" />
             </children>
         </VBox>
-        <TableView fx:id="ChTable" layoutX="330.0" layoutY="134.0" onMouseClicked="#showemploye" prefHeight="200.0" prefWidth="461.0">
+        <TableView fx:id="ChTable" layoutX="330.0" layoutY="118.0" onMouseClicked="#showemploye" prefHeight="282.0" prefWidth="461.0">
             <columns>
                 <TableColumn fx:id="cln_id" prefWidth="68.66671752929688" text="ID" />
                 <TableColumn fx:id="cln_nom" prefWidth="139.33340454101562" text="Full name :" />
@@ -35,8 +38,7 @@
             <TableColumn fx:id="cln_ferme" prefWidth="91.33333333333331" text="Ferme :" />
             </columns>
         </TableView>
-        <Label alignment="CENTER" layoutX="278.0" layoutY="41.0" styleClass="title" text="LISTE DES COMMANDES" />
-        <ButtonBar layoutX="223.0" layoutY="395.0" prefHeight="46.0" prefWidth="409.0">
+        <ButtonBar layoutX="220.0" layoutY="395.0" prefHeight="121.0" prefWidth="412.0">
             <buttons>
                 <Button fx:id="ajouterCh" mnemonicParsing="false" onAction="#Ajouter" prefHeight="25.0" prefWidth="118.0" text="Save" />
                 <Button fx:id="modifierCh" layoutY="18.0" mnemonicParsing="false" onAction="#Modifier" text="Update" />
@@ -49,10 +51,24 @@
         </ButtonBar>
           <Text layoutX="14.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id :" />
       <TextField fx:id="idCh" layoutX="47.0" layoutY="78.0" prefHeight="39.0" prefWidth="251.0" promptText="enter your id" />
-      <TextField fx:id="searchCh" layoutX="546.0" layoutY="45.0" prefHeight="25.0" prefWidth="143.0" promptText=" Rechercher..." style="-fx-background-color: gray;" />
+      <TextField fx:id="searchCh" layoutX="546.0" layoutY="74.0" prefHeight="25.0" prefWidth="143.0" promptText=" Rechercher..." style="-fx-background-color: gray;" />
       <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="664.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
         
       </ImageView>
-      <Button fx:id="searchEmploy" layoutX="700.0" layoutY="45.0" mnemonicParsing="false" onAction="#search" onMouseClicked="#searchemploye" prefHeight="25.0" prefWidth="68.0" text="chercher" />
+      <Button fx:id="searchEmploy" layoutX="701.0" layoutY="74.0" mnemonicParsing="false" onAction="#search" onMouseClicked="#searchemploye" prefHeight="25.0" prefWidth="68.0" text="chercher" />
+      <Pane layoutX="-12.0" layoutY="-7.0" prefHeight="64.0" prefWidth="1033.0" style="-fx-background-color: #197274;">
+         <children>
+            <Label layoutX="68.0" layoutY="15.0" styleClass="title" stylesheets="@commandestyle.css" text="Management Employe">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="48.0" fitWidth="55.0" layoutX="14.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/pngegg.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
     </children>
 </AnchorPane>
