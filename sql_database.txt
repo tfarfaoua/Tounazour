@@ -62,15 +62,32 @@ UNLOCK TABLES;
 
 
 
-CREATE TABLE Employee (
-	id INT AUTO_INCREMENT PRIMARY KEY,
-    FirstName VARCHAR(50),
-    CIN VARCHAR(50),
-    LastName VARCHAR(50),
-    JobTitle VARCHAR(100),
-    Salary DECIMAL(10, 2),
-    HireDate DATE
-);
+CREATE TABLE `employe` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(50) NOT NULL,
+  `cin` varchar(50) NOT NULL,
+  `tel` varchar(50) NOT NULL,
+  `ferme` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+INSERT INTO `employe` (`id`, `nom`, `cin`, `tel`, `ferme`) VALUES
+(1, 'John Doe', 'CIN123', '555-1234', 'Ferme A'),
+(2, 'Jane Smith', 'CIN456', '555-5678', 'Ferme B'),
+(3, 'Bob Johnson', 'CIN789', '555-9876', 'Ferme C'),
+(5, 'Charlie Brown', 'CIN567', '555-8765', 'Ferme E'),
+(6, 'Diana Miller', 'CIN890', '555-3456', 'Ferme F'),
+(7, 'Edward Davis', 'CIN345', '555-6543', 'Ferme G'),
+(8, 'Fiona Taylor', 'CIN678', '555-8765', 'Ferme H'),
+(9, 'George Wilson', 'CIN901', '555-2345', 'Ferme I'),
+(12, 'Amina', 'jd12090', '777999', 'D'),
+(13, 'rachida', 'DFG567', '557778', 'A'),
+(14, 'Ayman', 'D123456', '444888', 'A'),
+(15, 'Ayman', 'D123456', '444888', 'A'),
+(16, 'kamil', 'D234345', '123587', 'a'),
+(17, 'adam', 'JC26586', '2434375', 'A');
+UNLOCK TABLES;
+
 
 create table honey(
   id INT AUTO_INCREMENT PRIMARY KEY,
